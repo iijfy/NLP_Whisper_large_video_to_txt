@@ -6,7 +6,7 @@
 flowchart LR
     A["드라마 MP4 영상"]
 
-    subgraph STAGE1["1단계 · Whisper-large 기반 자동 자막"]
+    subgraph STAGE1["1단계 · Whisper-large"]
         direction TB
 
         V1["Whisper-large ASR<br/>(HF pipeline)"]
@@ -23,7 +23,7 @@ flowchart LR
         P1 --> S1 --> O1
     end
 
-    subgraph STAGE2["2단계 · WhisperX 정밀 alignment / 화자 정보"]
+    subgraph STAGE2["2단계 · WhisperX"]
         direction TB
 
         XW["WhisperX ASR + alignment"]
@@ -32,7 +32,7 @@ flowchart LR
         XW --> XS --> XU
     end
 
-    subgraph STAGE3["3단계 · 자막 에디터 수작업 보정"]
+    subgraph STAGE3["3단계 · 자막 에디터"]
         direction TB
 
         E1["Subtitle Edit / Aegisub로 SRT 편집"]
@@ -44,6 +44,8 @@ flowchart LR
     A --> STAGE1
     STAGE1 --> STAGE2
     STAGE2 --> STAGE3
+
+
 ```
 ## 📚 AI 영상 컨텐츠 자동 자막 생성 파이프라인 프로젝트 3단계 요약
 
